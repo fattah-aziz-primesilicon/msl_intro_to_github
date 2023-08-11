@@ -1,0 +1,67 @@
+###
+WHy to Migrate in GitHub:
+Version Control
+Keep your code in cloud
+Collaboration
+
+Planning Consideration:
+Migrate Github with current source codes as is: consider as new project
+Want to retain version-control hostory: GitHub Migrator Tool.
+
+### Upload your Project to GitHub
+	GitHub Importer
+	The Command Line
+	Exernal Migration Tool
+
+## GitHub Importer:
+Subversion
+Mercurial
+Team Foundation Version Control (TFVC)
+
+# Steps to import a repository:
+Upper right, select + and Import Repository
+Under old repo clone URL, type the URL of the project you want to import
+Choose user account or an organization to own the repository.
+Specify public or private
+Begin IMport
+Use password if the older repo was passwork protected
+Submit
+
+## Updating commit authors
+import status page, select Match authors
+connect to the author whose information you would like ot update
+Type teh email address or GItHub username of the author then pres Enter
+
+## The Command Line
+If GitHub Importer is not suitable for your purposes, such as if your existing code is hosted on a private netweok, then we recomment importing using the command line.
+GitHub username
+Clone URL for the external repository
+
+Demonstration:
+External Account: extuser
+External Git Host: https://external-host.com
+GitHub Personal Account: ghuser
+Repo on GitHub.com: repo.git
+
+Steps:
+1. Create a new repo in GitHub
+2. make a bare clone of the repo using external clone URL
+	git clone --bare https://external-host.com/extuser/repo.git
+3. Push the locally cloned repo to GitHub using the mirror option
+	cd repo.git
+	git push --mirror https://github.com/hguser/repo.git
+4. Remove the temporary local repo:
+	cd ..
+	rm -rf repo.git
+
+# Adding locally hosted code to GitHub:
+If you have existing source code or repositories stored locally on your computer or private network, you can add them to GitHub by typing commands in a terminal. You can do this by typing Git commands directly, or by using GitHub CLI.
+
+GitHub CLI is an open source tool for using GitHub from your computer's line. GitHub CLI can simplify the process of adding an existing project to GitHub using the command line. 
+# Adding a local repository to GitHub with GitHub CLI:
+1. In CLI, navigate to the root directory of your project.
+2. Initialize the local directory as a Git repository
+	git init -b main
+3. Stage and commit all the files in your project
+	git add . && git commit -m "initial commit"
+4. 
